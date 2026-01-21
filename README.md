@@ -108,6 +108,10 @@ class MainActivity : FlutterActivity() {
     }
 }
 ```
+
+---
+## 4. LINCENSE
+ဒီ Module ကို MIT License အောက်မှာ ထုတ်ပြန်ထားပါတယ်။ အသေးစိတ်ကို `LICENSE.md` ဖိုင်ထဲမှာ ကြည့်ရှုနိုင်ပါတယ်။
     
 
 
