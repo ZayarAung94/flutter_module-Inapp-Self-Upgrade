@@ -8,7 +8,7 @@ import 'package:taximeter/modules/inapp_self_upgrade/domain/use_case/install_apk
 class AppVersionsFacade extends GetxService {
   static AppVersionsFacade get to => Get.find();
 
-  final ApkInstallService _installService = Get.put(ApkInstallService());
+  final ApkInstallService _installService = Get.find<ApkInstallService>();
   final VersionInfoRepository _versionRepo = Get.find<VersionInfoRepository>();
 
   late final checkVersion = CheckVersionUseCase(_versionRepo);

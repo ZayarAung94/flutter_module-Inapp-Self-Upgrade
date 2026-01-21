@@ -11,17 +11,20 @@
 gti submodule add https://github.com/ZayarAung94/flutter_module-Inapp-Self-Upgrade.git lib/modules/inapp_self_upgrade
 ```
 
+---
+
 ## 2. Dependency Injection (GetX)
 
 `Initial Binding` (သို့) `main.dart` ဖိုင်ထဲမှာ အောက်ပါ code ကို ထည့်ပေးပါ-
 
 ```dart
 // Repositories
+
 Get.lazyPut<VersionInfoRepository>(() => VersionInfoRepoInpl(), fenix: true);
 Get.lazyPut(() => ApkInstallService(), fenix: true);
 Get.lazyPut(() => AppVersionsFacade(), fenix: true);
 ```
-
+---
 
 ## 3. Android Native Setup (Critical)
 
