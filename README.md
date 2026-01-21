@@ -17,9 +17,8 @@ gti submodule add https://github.com/ZayarAung94/flutter_module-Inapp-Self-Upgra
 
 ```dart
 // Repositories
-Get.lazyPut<VersionInfoRepository>(() => VersionInfoRepoImpl(), fenix: true);
-
-// Facades (UseCase Hubs)
+Get.lazyPut<VersionInfoRepository>(() => VersionInfoRepoInpl(), fenix: true);
+Get.lazyPut(() => ApkInstallService(), fenix: true);
 Get.lazyPut(() => AppVersionsFacade(), fenix: true);
 ```
 
