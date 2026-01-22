@@ -1,0 +1,21 @@
+name: 'inapp_self_upgrade'
+description: "A Module for in-app self upgrade functionality."
+publish_to: 'none'
+
+version: 1.0.0
+
+environment:
+  sdk: ^3.8.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  dio: ^5.9.0
+
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  package_info_plus: ^9.0.0
+
+  permission_handler: ^12.0.1

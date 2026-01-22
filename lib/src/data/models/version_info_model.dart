@@ -1,6 +1,6 @@
-import 'package:taximeter/modules/inapp_self_upgrade/domain/entity/version_info_entity.dart';
+import 'package:inapp_self_upgrade/inapp_self_upgrade.dart';
 
-class AppVersion {
+class VersionInfoModel {
   double version;
   final bool mustTo;
   final int buildNumber;
@@ -8,7 +8,7 @@ class AppVersion {
   final String? downloadUrl;
   final String versionString;
 
-  AppVersion({
+  VersionInfoModel({
     required this.version,
     required this.mustTo,
     required this.buildNumber,
@@ -18,8 +18,8 @@ class AppVersion {
   });
 
   /// Create AppVersion from JSON / Map
-  factory AppVersion.fromJson(Map<String, dynamic> json) {
-    return AppVersion(
+  factory VersionInfoModel.fromJson(Map<String, dynamic> json) {
+    return VersionInfoModel(
       version: (json['version'] as num).toDouble(),
       versionString: json['versionString'] as String,
       mustTo: json['mustTo'] as bool,
@@ -29,8 +29,8 @@ class AppVersion {
     );
   }
 
-  VersionInfoEntity toEntity() {
-    return VersionInfoEntity(
+  VersionInfo toEntity() {
+    return VersionInfo(
       version: versionString,
       forceUpdate: mustTo,
       buildNumber: buildNumber,

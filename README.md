@@ -4,29 +4,30 @@
 
 ---
 
-## 1. Module Installation
+## 1. Package Installation
+
+## A. Add git submodule
 ဒီ Module ကို သင့် Project မှာ အသုံးပြုဖို့ အတွက် `terminal` မှာ အောက်ပါ command ကို ရိုက်ထည့်ပါ-
 
 ```bash
 gti submodule add https://github.com/ZayarAung94/flutter_module-Inapp-Self-Upgrade.git lib/modules/inapp_self_upgrade
 ```
 
----
+## B. Add Package in pubspec.yaml
 
-## 2. Dependency Injection (GetX)
+`pubspec.yaml` ထဲမှာ အောက်က dependency ကြေညာပေးပါ
 
-`Initial Binding` (သို့) `main.dart` ဖိုင်ထဲမှာ အောက်ပါ code ကို ထည့်ပေးပါ-
-
-```dart
-// Repositories
-
-Get.lazyPut<VersionInfoRepository>(() => VersionInfoRepoInpl(), fenix: true);
-Get.lazyPut(() => ApkInstallService(), fenix: true);
-Get.lazyPut(() => AppVersionsFacade(), fenix: true);
+```yaml
+dependencies:
+  inapp_self_upgrade:
+    path: ./lib/modules/inapp_self_upgrade
+  
 ```
+
 ---
 
-## 3. Android Native Setup (Critical)
+
+## 2. Android Native Setup (Critical)
 
 ဒီ Module က Native APK Installation ကို အသုံးပြုထားတဲ့အတွက် `android` folder အောက်မှာ အောက်ပါတို့ကို ပြင်ဆင်ပေးပါ။
 

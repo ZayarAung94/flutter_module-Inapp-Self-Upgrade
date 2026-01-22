@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:taximeter/core/utils/app_log.dart';
-import 'package:taximeter/modules/inapp_self_upgrade/data/services/apk_install_service.dart';
+import 'package:inapp_self_upgrade/src/data/services/apk_install_service.dart';
 
 class InstallApkUseCase {
   final ApkInstallService _installService;
-  InstallApkUseCase(this._installService);
+  InstallApkUseCase({ApkInstallService? installService})
+    : _installService = installService ?? ApkInstallService();
 
   Future<void> call(String apkFilePath) async {
     final file = File(apkFilePath);
@@ -14,7 +14,6 @@ class InstallApkUseCase {
       try {
         await _installService.installApk(apkFilePath);
       } catch (e) {
-        AppLog.error(e.toString());
         rethrow;
       }
     } else {

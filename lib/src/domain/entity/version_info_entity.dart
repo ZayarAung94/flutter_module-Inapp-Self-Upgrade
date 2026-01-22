@@ -1,11 +1,11 @@
-class VersionInfoEntity {
+class VersionInfo {
   final String version;
   final int buildNumber;
   final String downloadUrl;
   final bool forceUpdate;
   final String releaseNotes;
 
-  VersionInfoEntity({
+  VersionInfo({
     required this.version,
     required this.buildNumber,
     required this.downloadUrl,
