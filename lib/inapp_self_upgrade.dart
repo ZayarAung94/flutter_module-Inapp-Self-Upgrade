@@ -2,6 +2,7 @@ import 'package:inapp_self_upgrade/src/domain/entity/version_info_entity.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/check_version_uc.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/download_apk_uc.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/install_apk_uc.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 export 'src/data/models/version_info_model.dart';
 export 'src/domain/entity/version_info_entity.dart';
@@ -12,6 +13,17 @@ class InappSelfUpgrade {
   static InappSelfUpgrade get to => _instance;
 
   void init() {}
+
+  Future<bool> checkPermission() async {
+    var status = await Permission.requestInstallPackages.status;
+
+    if (status.isDenied || status.isPermanentlyDenied) {
+      status = await Permission.requestInstallPackages.request();
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   Future<VersionInfo?> checkUpdate(VersionInfo versionInfo) async {
     return CheckVersionUseCase().call(versionInfo);
