@@ -2,6 +2,7 @@ import 'package:inapp_self_upgrade/src/domain/entity/version_info_entity.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/check_version_uc.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/download_apk_uc.dart';
 import 'package:inapp_self_upgrade/src/domain/use_case/install_apk_uc.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 export 'src/data/models/version_info_model.dart';
@@ -39,5 +40,10 @@ class InappSelfUpgrade {
 
   Future<void> installApk(String apkPath) async {
     return InstallApkUseCase().call(apkPath);
+  }
+
+  Future<String> getVersion() async {
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    return "${packageInfo.version} (${packageInfo.buildNumber})";
   }
 }
